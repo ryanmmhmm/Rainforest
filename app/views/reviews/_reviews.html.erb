@@ -1,6 +1,6 @@
-<li>
-  <% if reviews.user != nil %>
+<% if (reviews.user != nil) %>
+  <li>
     <p><%= reviews.comment %></p>
     <p><em> by <%= link_to "#{reviews.user.name}", user_path(reviews.user.id) %></em> Added on: <%= reviews.created_at %></p>
-  <% end %>
-</li>
+  </li>
+<% end %>

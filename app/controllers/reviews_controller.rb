@@ -13,7 +13,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to products_path, notice: 'Review created successfully'
     else
-      render 'products/show'
+      flash[:alert] = "You cannot create a comment without a comment!"
+      redirect_to product_path(@product)
     end
   end
 

@@ -3,9 +3,10 @@
 <p><%= @product.name %>, $<%= @product.formatted_price %><p>
 <p><%= @product.description %></p>
 
-<h3>Reviews</h3>
 
-<p>Reviews for <%= @product.name %></p>
+<hr>
+
+<h3>Reviews for <%= @product.name %></h3>
 <% if @product.reviews.any? %>
   <ul>
     <%= render partial: 'reviews/reviews', collection: @product.reviews %>
@@ -13,6 +14,7 @@
 <% end %>
 
 <% if current_user %>
+  <hr>
   <h4>New Review</h4>
 
   <%= form_for([@product, @review]) do |f| %>
