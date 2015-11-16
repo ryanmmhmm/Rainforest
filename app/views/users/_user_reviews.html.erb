@@ -1,4 +1,4 @@
 <li>
   <em><%= user_reviews.comment %></em>
-  <%= link_to "#{user_reviews.product.name}", product_path(user_reviews.product) %>
+  <%= link_to "#{user_reviews.product.name}", product_path(user_reviews.product) %>, <%= user_reviews.created_at %>
 </li>
