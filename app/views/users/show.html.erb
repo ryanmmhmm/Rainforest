@@ -1,3 +1,10 @@
 <h1>User Profile</h1>
 
 <%= render partial: 'users/user_information', locals: {user: @user} %>
+
+<hr>
+
+<h3>Reviews by User: <%= @user.name %></h3>
+<ol>
+  <%= render partial: 'user_reviews', collection: @user_reviews %>
+</ol>
