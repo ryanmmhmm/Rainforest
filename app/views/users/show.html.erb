@@ -1,0 +1,7 @@
+<h1>User Profile</h1>
+
+<p><%= "Username: #{@user.name}"%></p>
+<p><%= "Email: #{@user.email}" %></p>
+<p><%= "Number of reviews: #{@user.reviews.count}" %></p>
+
+<%= render partial: 'users/user_information', collection: @user %>

@@ -3,7 +3,7 @@
 <ul>
   <% @products.each do |product| %>
     <li>
-      <p><%= product.name %>, $<%= product.formatted_price %><p>
+      <p><%= link_to "#{product.name}", product_path(product) %>, $<%= product.formatted_price %><p>
       <p><%= product.description[0..30] %>...</p>
     </li>
   <% end %>
