@@ -1,0 +1,9 @@
+<% @product.reviews.each do |review| %>
+  <li>
+    <p><%= review.comment %></p>
+    <% if review.user != nil %>
+      <p><em> by <%= review.user.name %></em></p>
+      <p>Added on: <%= review.created_at %></p>
+    <% end %>
+  </li>
+<% end %>
