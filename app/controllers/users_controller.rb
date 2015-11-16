@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    if @user != current_user
+      redirect_to products_url, notice: "You cannot edit this user."
+    end
   end
 
   def update
