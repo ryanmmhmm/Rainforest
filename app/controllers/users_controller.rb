@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_reviews = @user.reviews
+    @user_reviews = @user.reviews.order(updated_at: :desc)
   end
 
   def edit

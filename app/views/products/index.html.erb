@@ -3,8 +3,12 @@
 <ul>
   <% @products.each do |product| %>
     <li>
-      <p><%= link_to "#{product.name}", product_path(product) %>, $<%= product.formatted_price %><p>
-      <p><%= product.description[0..30] %>...</p>
+      <p><%= link_to "#{product.name}", product_path(product) %>, $<%= product.formatted_price %>, Reviews: (<%= product.reviews.count %>)<p>
+      <p>"<%= product.description[0..30] %>..."</p>
     </li>
   <% end %>
 </ul>
+
+<button>
+  <%= link_to 'Add new product', new_product_url %>
+</button>
