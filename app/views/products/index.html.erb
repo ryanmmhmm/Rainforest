@@ -1,16 +1,21 @@
 <h1>Products</h1>
 
-<ul>
-  <% if @products.any? %>
-    <% @products.each do |product| %>
-      <li>
-        <p><%= link_to "#{product.name}", product_path(product) %>, $<%= product.formatted_price %><%= if product.reviews.any?
-          ", Reviews: (#{product.reviews.count})" end %><p>
-        <p>"<%= product.description[0..30] %>..."</p>
-      </li>
+<%= form_tag products_path, method: :GET, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<div id="products">
+  <ul>
+    <% if @products.any? %>
+      <%= render @products%>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>
+
+<hr>
+
+
 
 <button>
   <%= link_to 'Add new product', new_product_url %>

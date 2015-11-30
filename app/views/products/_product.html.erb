@@ -1,0 +1,22 @@
+<li>
+  <div class="product-info">
+    <p>
+      <%= link_to "#{product.name}", product_path(product) %><%= ", $#{product.formatted_price}" %>
+      <% if product.reviews.any? %>
+      <div class="product-reviews">
+          <%= "Reviews: " %>
+          <%= link_to "(#{product.reviews.count})", product_path(product) %>
+      </div>
+      <% end %>
+    </p>
+  </div>
+  <div class="product-description">
+    <p>
+      <% if product.description.length >= 30 %>
+        <%= "\"#{product.description[0..30]}...\"" %>
+      <% else %>
+        <%= "\"#{product.description}\"" %>
+      <% end %>
+    </p>
+  </div>
+</li>
