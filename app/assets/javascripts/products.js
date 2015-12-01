@@ -1,3 +1,28 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on('page:load ready', function() {
+
+  $('#search-form').submit(function(event) {
+    event.preventDefault();
+    var searchValue = $('#search').val();
+
+    $.ajax({
+      url: '/products?search=' + searchValue,
+      type: 'GET',
+      dataType: 'html',
+      success: function(data) {
+        $('#products').html(data)
+      }
+    });
+  });
+
+  $('#send-ajax-request').on('click', function() {
+    $.ajax({
+      url: '/products/ajax',
+      type: 'GET',
+      dataType: 'html',
+      success: function(data) {
+        $('#ajax-response').html(data)
+      }
+    });
+  });
+
+});
