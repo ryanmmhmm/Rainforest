@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
     else
       Product.all
     end
+
+    if request.xhr?
+      render @products
+    end
   end
 
   def show
@@ -47,6 +51,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
+  end
+
+  def ajax
+    render text: :"Hello World!"
   end
 
   private
