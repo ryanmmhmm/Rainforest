@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = if params[:search]
+      Product.where('name LIKE ?', "%{params[:search]}%")
+    else
+      Product.all
+    end
   end
 
   def show
@@ -35,7 +39,7 @@ class ProductsController < ApplicationController
     if @product.update_attributes(product_params)
       redirect_to product_path(@product)
     else
-      render :edit
+      render :edit, notice: "you suck at this"
     end
   end
 
