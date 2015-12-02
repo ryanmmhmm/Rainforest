@@ -20,10 +20,9 @@
   </ul>
 </div>
 
-<hr>
-
-
-
-<button>
-  <%= link_to 'Add new product', new_product_url %>
-</button>
+<% if current_user %>
+  <hr>
+  <button>
+    <%= link_to 'Add new product', new_product_url %>
+  </button>
+<% end %>
