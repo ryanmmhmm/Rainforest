@@ -25,7 +25,11 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    if current_user
+      @product = Product.new
+    else
+      redirect_to :products, notice: "You need to be logged in to add a product."
+    end
   end
 
   def edit
